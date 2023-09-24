@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -19,7 +20,7 @@ fun WaterCounter(modifier: Modifier = Modifier) {
     /* A value calculated by remember is stored in the Composition during the initial composition,
     and the stored value is kept across recompositions. */
 
-    val count: MutableState<Int> = remember { mutableStateOf(0) }
+    val count: MutableState<Int> = rememberSaveable { mutableStateOf(0) }
     Column(modifier = modifier.padding(16.dp)) {
         if (count.value > 0) {
             /* If we press add button, counter increases to 1 and state changes.
@@ -34,8 +35,7 @@ fun WaterCounter(modifier: Modifier = Modifier) {
         //adding events to update the state, event -> update state -> display state
         Button(
             onClick = { count.value++ },
-            Modifier.padding(top = 8.dp),
-            enabled = count.value < 10  //after value 10, button would be disabled 
+            Modifier.padding(top = 8.dp)
         ) {
             Text("Add One")
         }
