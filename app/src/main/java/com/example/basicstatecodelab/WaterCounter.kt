@@ -21,14 +21,21 @@ fun WaterCounter(modifier: Modifier = Modifier) {
 
     val count: MutableState<Int> = remember { mutableStateOf(0) }
     Column(modifier = modifier.padding(16.dp)) {
-        Text(
-            text = "You have counted ${count.value} glasses",
-        )
+        if (count.value > 0) {
+            /* If we press add button, counter increases to 1 and state changes.
+               A recomposition is called, and screen gets recomposed with the new elements
+             */
+
+            Text(
+                text = "You have counted ${count.value} glasses",
+            )
+        }
 
         //adding events to update the state, event -> update state -> display state
         Button(
             onClick = { count.value++ },
-            Modifier.padding(top = 8.dp)
+            Modifier.padding(top = 8.dp),
+            enabled = count.value < 10  //after value 10, button would be disabled 
         ) {
             Text("Add One")
         }
