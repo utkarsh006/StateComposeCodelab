@@ -9,7 +9,6 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 //Recomposition is re-running composables to update the composition when data changes.
@@ -37,7 +36,7 @@ fun StatelessCounter(
              */
 
             Text(
-                text = "You have counted ${count} glasses",
+                text = "You have counted $count glasses",
             )
         }
 
