@@ -1,9 +1,10 @@
-package com.example.basicstatecodelab
+package com.example.basicstatecodelab.composables
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.basicstatecodelab.WellnessTask
 
 @Composable
 fun WellnessTasksList(
