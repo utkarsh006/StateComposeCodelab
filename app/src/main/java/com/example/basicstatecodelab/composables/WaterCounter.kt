@@ -22,7 +22,6 @@ fun StatefulCounter(modifier: Modifier = Modifier) {
     val count: MutableState<Int> = rememberSaveable { mutableStateOf(0) }
     StatelessCounter(onIncrement = { count.value++ }, count = count.value)
 }
-//state going down, events going up, Unidirectional Data Flow (UDF)
 
 @Composable
 fun StatelessCounter(
